@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu primeiro programa...</title>
+    <style>
+        body {
+            background-color: rgb(105, 105, 173);
+            color: white;
+            font: normal 20pt Arial, sans-serif;
+        }
+
+        h1, h2{
+            color: rgba(255, 212, 22);
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, World!</h1> 
+    <p>Já me livrei da maldição</p>
+    <h2>Olá, mundo!</h2>
+    <script>
+        var n1 = Number.parseInt(window.prompt('Digite um número: ')); // Precisamos adicionar o Number.parseInt para informar que é um número inteiro e Float para número com vírgula, número real
+        var n2 = Number(window.prompt('Digite utro número' )); // parseInt converte para inteiro, posso também declarar como Number que aceita inteiro e real
+        var s = n1 + n2
+        window.alert(`A soma entre ${n1} e ${n2} é igual a ${s}`); // Converto o número para String para concatenar
+
+        /*String para número Number(), Number.parseInt(n1) ou Number.parseFloart(n1)*/
+        /*Número para String String(n1) ou n1.toString()*/
+
+        /*Podemos escrever os textos com o ${} APENAS DENTRO DE CRASE*/
+    </script>
+</body>
+</html>
