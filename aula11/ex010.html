@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+</head>
+<body>
+    <h1>Velocímetro DETRAN</h1>
+    <input type="number" name="txtn1" id="txtn1" placeholder="Coloque a sua velocidade!!">
+    <input type="button" value="Verificar Velocidade" onclick="clicou()">
+    <div id="resultado">Resultado: </div>
+    <script>
+        function clicou() {
+            var tn1 = document.getElementById(`txtn1`)
+            var res = document.getElementById(`resultado`)
+            var velocidade = Number(tn1.value) // Precisamos converter para número
+            res.innerHTML += `<p>A sua velocidade é de <strong>${velocidade}</strong> Km/h</p>`
+            if (velocidade > 60) {
+                res.innerHTML += `<p>Você <strong>ultrapassou o limite de velocidade</strong></p>. MULTADO!`
+            } else {
+                res.innerHTML += `<p>Muito bem, você está dentro do limite de velocidade!</p>`
+            }
+        }
+    </script>
+</body>
+</html>
