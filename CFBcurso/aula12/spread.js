@@ -1,3 +1,19 @@
+const objs = document.getElementsByTagName("div")
+const objs2 = [...document.getElementsByTagName("div")] // Tranforma o div em um Array
+
+objs2.forEach(element => {
+    element.innerHTML="curso"
+    
+});
+
+console.log(objs)
+console.log(objs2)
+
+
+
+
+/*
+
 const soma=(v1,v2,v3) => {
     return v1+v2+v3
 }
@@ -5,6 +21,8 @@ const soma=(v1,v2,v3) => {
 let valores = [1,5,4]
 
 console.log(soma(...valores)) // Neste caso, cada valor é adicionado ao parametro de soma() por causa do spreed...
+
+*/
 
 /*
 let jogador1 = {nome: "Bruno", energia: 100, vidas: 3, magia: 150}
