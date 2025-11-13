@@ -17,10 +17,6 @@ section {
     box-shadow: 3px 3px 10px black;
 }
 
-select {
-    width: 150px;
-}
-
 footer {
     color: white;
     text-align: center;
