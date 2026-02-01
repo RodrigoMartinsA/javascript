@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Stacks - Rodrigo</title>
+    <style>
+        .selecionado {
+            background-color: magenta;
+            border: yellow solid 1px;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen gap-6">
+
+    <div  class="flex flex-col items-center gap-2">
+        <span class="font-bold text-gray-700">Origem</span>
+        <div id="lista-esquerda" class="w-64 h-96 bg-gray-200 border-2 border-black p-4 flex flex-col gap-3 overflow-y-auto shadow-inner">
+            </div>
+    </div>
+
+    <div class="flex flex-col items-center gap-4">
+        <div class="flex flex-col items-center gap-4">
+    <button onclick="moverItem()" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded shadow-lg transition-all active:scale-95">
+        Copiar ->
+    </button>
+    
+    <button onclick="voltarItem()" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded shadow-lg transition-all active:scale-95">
+       <- Voltar
+    </button>
+</div>
+        <p class="text-[10px] text-gray-400 w-24 text-center italic">Selecione um item e clique para mover</p>
+    </div>
+
+    <div class="flex flex-col items-center gap-2">
+        <span class="font-bold text-gray-700">Destino</span>
+        <div id="lista-direita" class="w-64 h-96 bg-gray-200 border-2 border-black p-4 flex flex-col gap-3 overflow-y-auto shadow-inner">
+            </div>
+    </div>
+
+    <script>
+    let idSelecionado = null;
+
+    // Função para buscar os dados iniciais
+    async function buscarDados() {
+        try {
+            const response = await fetch('http://localhost:3000/stacks');
+            const stacks = await response.json();
+            renderizarListas(stacks);
+        } catch (error) {
+            console.error("Erro ao buscar dados:", error);
+        }
+    }
+
+    function renderizarListas(stacks) {
+        const divEsq = document.getElementById('lista-esquerda');
+        const divDir = document.getElementById('lista-direita');
+        divEsq.innerHTML = '';
+        divDir.innerHTML = '';
+
+        stacks.forEach(stack => {
+            const btn = document.createElement('button');
+            btn.innerText = stack.nome;
+            btn.className = "w-full py-2 bg-[#cccccc] border border-gray-600 rounded-xl mb-2 hover:bg-blue-100 transition";
+            
+            btn.onclick = () => {
+                idSelecionado = stack.id;
+                document.querySelectorAll('button').forEach(b => b.classList.remove('ring-2', 'ring-blue-500', 'bg-blue-200'));
+                btn.classList.add('ring-2', 'ring-blue-500', 'bg-blue-200');
+            };
+
+            if (stack.lado === 'esquerda') divEsq.appendChild(btn);
+            else divDir.appendChild(btn);
+        });
+    }
+
+    // --- FUNÇÃO PARA MOVER PARA A DIREITA ---
+    async function moverItem() {
+        if (!idSelecionado) return alert("Selecione um item primeiro!");
+        await fetch('http://localhost:3000/mover', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: idSelecionado })
+        });
+        idSelecionado = null;
+        buscarDados();
+    }
+
+    // --- FUNÇÃO PARA VOLTAR PARA A ESQUERDA (ESTAVA FALTANDO!) ---
+    async function voltarItem() {
+        if (!idSelecionado) return alert("Selecione um item primeiro!");
+        await fetch('http://localhost:3000/voltar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: idSelecionado })
+        });
+        idSelecionado = null;
+        buscarDados();
+    }
+
+    buscarDados();
+</script>
+</body>
+</html>
