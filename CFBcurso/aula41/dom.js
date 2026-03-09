@@ -1,6 +1,6 @@
 const caixa1 = document.querySelector('#caixa1')
 const btn_c = [...document.querySelectorAll('.curso')]
-const cursos = ["HTML","CSS","JavaScript","PHP","React","MySQL", "ReactNative"]
+const cursos = ["HTML", "CSS", "JavaScript", "PHP", "React", "MySQL", "ReactNative"]
 
 cursos.map((el, chave) => { // Faz a verificação dos elementos dentro do Array cursos, retorna o nome dos elementos com "el" e a numeração de cada elemento com "chave"
     const novoElemento = document.createElement("div");
