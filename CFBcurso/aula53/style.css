@@ -1,0 +1,31 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+input {
+    width: 99vw;
+    height: 30px;
+    margin: 1px 5px;
+    border-radius: 5px;
+    background-color: rgb(211, 207, 220);
+}
+
+#operacao {
+    display: flex;
+}
+
+button {
+    width: 98vw;
+    height: 50px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(211, 207, 220);
+}

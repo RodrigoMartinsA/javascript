@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aula 53 de Javascript</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <main>
+            <div id="valor1" class="valor1">
+                <label>Valor 1</label>
+                <input type="number" id="input1" />
+            </div>
+            <div id="valor2" class="valor2">
+                <label>Valor 2</label>
+                <input type="number" name="input2" id="input2" />
+            </div>
+            <div>
+                <label>Resultado</label>
+                <input type="text" name="resultado" id="resposta" disabled />
+            </div>
+            <div id="operacao" class="operacao">
+                <button onclick="Calcular(0)">+</button>
+                <button onclick="Calcular(1)">-</button>
+                <button onclick="Calcular(2)">x</button>
+                <button onclick="Calcular(3)">/</button>
+            </div>
+        </main>
+        <script src="array.js"></script>
+    </body>
+</html>
