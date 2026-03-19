@@ -6,23 +6,22 @@ Retorna um iterador, para facilitar a iteração dos elementos de uma coleção,
 -> Array     
 -> Map
 -> Sets 
-->      -- String --
+-> String
+->      -- Object --
 
 */
 
-const caixa = document.querySelector("#caixa");
+class Pessoa {
+    constructor(nome) { // Método que é chamado quando se instancia um objeto na classe
+        this.nome=nome
+        this.idade=23
+    }
+}
 
-const carror = ['Pool', 'Golf', 'T-Cross', 'HRV']
+let p1 = new Pessoa("Rodrigo")
+let p2 = new Pessoa("Mario")
+let p3 = new Pessoa("Cláudio")
 
-let ul = '<ul>'
-carror.forEach((el) => {
-    ul += `<li>${el}</li>`
-})
-ul += `</ul>`
-
-const curso = 'JavaScript';
-const canal = 'CFB Cursos';
-const frases = `Este é o curso \nde ${curso} \ndo canal ${canal}`;
-
-caixa.innerHTML = ul
-console.log(frases)
+console.log(p1.nome)
+console.log(p2.nome)
+console.log(p3.nome)

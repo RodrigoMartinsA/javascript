@@ -7,7 +7,7 @@ Retorna um iterador, para facilitar a iteração dos elementos de uma coleção,
 ->  Map
 ->  Sets
 ->  String
-
+->  Object
 */
 
 const valores = [10, 20, 30, 40, 50]; // Arrays são iteráveis, ou seja, eles possuem o método Symbol.iterator que retorna um iterador para o array

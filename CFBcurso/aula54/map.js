@@ -7,6 +7,7 @@ Retorna um iterador, para facilitar a iteração dos elementos de uma coleção,
 ->      -- MAP --
 ->  Sets
 ->  String
+->  Object
 
 */
 
